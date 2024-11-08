@@ -58,7 +58,7 @@
 }
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border transition-colors;
     font-family: "Poppins", sans-serif;
   }
   body {
