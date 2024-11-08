@@ -21,9 +21,14 @@ import {
   UsersIcon,
 } from "lucide-react";
 import { Link, Routes, Route } from "react-router-dom";
+
+import Home from "./home";
+import About from "./about";
+import Contact from "./contact";
+
 import { FloatButton } from "antd";
 import { useGeneral } from "../contexts/generalContext";
-import Homepage from "./Home";
+
 
 export default function Component() {
   const {dark, setDark} = useGeneral();
@@ -176,9 +181,11 @@ export default function Component() {
         </header>
         <main className="p-4 lg:p-8 overflow-y-scroll max-h-screen ">
           <Routes>
-            <Route exact path="/" element={<Homepage />} />
-            <Route path="/about" element={<h1>About</h1>} />
-            <Route path="/contact" element={<h1>Contact</h1>} />
+
+            <Route exact path="/" element={<h1><Home/></h1>} />
+            <Route path="/about" element={<h1><About/></h1>} />
+            <Route path="/contact" element={<h1><Contact/></h1>} />
+
           </Routes>
         </main>
         <FloatButton onClick={handleDarkMode} className="flex justify-center items-center shadow-lg bg-foreground" icon={<div className="flex justify-center items-center w-full h-full hover:text-background">{dark ? <Sun /> : <Moon />}</div>} tooltip={<div>Switch mode</div>} />
