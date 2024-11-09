@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
+  File,
   GlobeIcon,
   HomeIcon,
   LayoutGridIcon,
@@ -22,12 +23,15 @@ import {
 } from "lucide-react";
 import { Link, Routes, Route } from "react-router-dom";
 
-import Home from "./home";
-import About from "./about";
-import Contact from "./contact";
+
 
 import { FloatButton } from "antd";
 import { useGeneral } from "../contexts/generalContext";
+import CoursesList from "../pages/CoursesList";
+import DocumentRequest from "../pages/Document";
+import QuizPage from "../pages/QuizPage";
+import WeeklySchedule from "../pages/WeeklySchedule";
+
 
 
 export default function Component() {
@@ -38,7 +42,7 @@ export default function Component() {
   };
   return (
     <div className={`flex h-screen w-full ${dark ? 'dark' : ''} `}>
-      <div className="hidden lg:block lg:w-64 lg:shrink-0 lg:border-r lg:bg-gray-100 dark:lg:bg-gray-800">
+      <div className="hidden lg:block lg:w-64 lg:shrink-0 lg:border-r bg-background">
         <div className="flex h-full flex-col justify-between py-6 px-4">
           <div className="space-y-6">
             <Link
@@ -53,30 +57,38 @@ export default function Component() {
               />
               <span className="text-lg text-foreground">OFPPT</span>
             </Link>
-            <nav className="space-y-1">
+            <nav className="space-y-3">
               <Link
-                to="/"
-                className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-50"
-                prefetch={false}
-              >
-                <HomeIcon className="h-5 w-5" />
-                Home
-              </Link>
-              <Link
-                to="/about"
-                className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-50"
+                to="/WeeklySchedule"
+                className="bg-secondary text-foreground flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium  border-foreground "
                 prefetch={false}
               >
                 <LayoutGridIcon className="h-5 w-5" />
-                About
+                Weekly Schedule
               </Link>
               <Link
-                to="/contact"
-                className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-50"
+                to="/quizzes"
+                className="bg-secondary text-foreground flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium  border-foreground "
                 prefetch={false}
               >
-                <UsersIcon className="h-5 w-5" />
-                Contact
+                <LayoutGridIcon className="h-5 w-5" />
+                Quizzes
+              </Link>
+              <Link
+                to="/courses"
+                className="bg-secondary text-foreground flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium  border-foreground "
+                prefetch={false}
+              >
+                <LayoutGridIcon className="h-5 w-5" />
+                Courses
+              </Link>
+              <Link
+                to="/documents"
+                className="bg-secondary text-foreground flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium  border-foreground "
+                prefetch={false}
+              >
+                <File className="h-5 w-5" />
+                Documents
               </Link>
             </nav>
           </div>
@@ -179,13 +191,12 @@ export default function Component() {
             </Sheet>
           </div>
         </header>
-        <main className="p-4 lg:p-8 overflow-y-scroll max-h-screen ">
+        <main className="p-4 lg:p-8 bg-secondary overflow-y-scroll max-h-screen ">
           <Routes>
-
-            <Route exact path="/" element={<h1><Home/></h1>} />
-            <Route path="/about" element={<h1><About/></h1>} />
-            <Route path="/contact" element={<h1><Contact/></h1>} />
-
+              <Route path="/WeeklySchedule" element={<WeeklySchedule />} />
+              <Route path="/quizzes" element={<QuizPage />} />
+              <Route path="/courses" element={<CoursesList />} />
+              <Route path="/documents" element={<DocumentRequest />} />
           </Routes>
         </main>
         <FloatButton onClick={handleDarkMode} className="flex justify-center items-center shadow-lg bg-foreground" icon={<div className="flex justify-center items-center w-full h-full hover:text-background">{dark ? <Sun /> : <Moon />}</div>} tooltip={<div>Switch mode</div>} />

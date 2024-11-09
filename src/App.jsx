@@ -8,18 +8,19 @@ import About from './comps/about';
 
 function App() {
   return (
-    <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
+    // <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
     <Router>
-      <Nave />
+      {/* <Nave /> */}
+      <Navbar />
       <Routes>
 
-            <Route exact path="/" element={<Home/>} />
+            {/* <Route exact path="/" element={<Home/>} />
             <Route path="/about" element={<About/>} />
-            <Route path="/contact" element={<Contact/>} />
+            <Route path="/contact" element={<Contact/>} /> */}
 
           </Routes>
     </Router>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 }
 
