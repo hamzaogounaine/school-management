@@ -18,27 +18,27 @@ const WeeklySchedule = () => {
 
   // Initial schedule state (empty hours for simplicity)
   const [schedule, setSchedule] = useState({
-    Monday: Array(timeSlots.length).fill(""),
-    Tuesday: Array(timeSlots.length).fill(""),
-    Wednesday: Array(timeSlots.length).fill(""),
-    Thursday: Array(timeSlots.length).fill(""),
-    Friday: Array(timeSlots.length).fill(""),
-    Saturday: Array(timeSlots.length).fill("")
+    Monday: Array(timeSlots.length).fill("empty"),
+    Tuesday: Array(timeSlots.length).fill("empty"),
+    Wednesday: Array(timeSlots.length).fill("empty"),
+    Thursday: Array(timeSlots.length).fill("empty"),
+    Friday: Array(timeSlots.length).fill("empty"),
+    Saturday: Array(timeSlots.length).fill("empty")
   });
 
   return (
-    <div className="p-6 bg-white dark:bg-[#34495E] min-h-screen rounded-lg">
+    <div className="p-6 bg-gray-50 dark:bg-gray-800 min-h-screen rounded-lg">
       {/* Dropdowns for Level and Class */}
       <div className="flex flex-col md:flex-row justify-between mb-6">
         <div className="w-full md:w-1/2 md:pr-4 mb-4 md:mb-0">
-          <label htmlFor="level" className="block text-lg font-semibold text-black dark:text-[#96C9F4] mb-2">
+          <label htmlFor="level" className="block text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
             Select Level
           </label>
           <select
             id="level"
             value={selectedLevel}
             onChange={(e) => setSelectedLevel(e.target.value)}
-            className="w-full p-2 border rounded-md bg-gray-100 dark:bg-[#2C3E50] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#3FA2F6]"
+            className="w-full p-2 border rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select Level</option>
             {levels.map((level, index) => (
@@ -50,14 +50,14 @@ const WeeklySchedule = () => {
         </div>
 
         <div className="w-full md:w-1/2 md:pl-4">
-          <label htmlFor="class" className="block text-lg font-semibold text-black dark:text-[#96C9F4] mb-2">
+          <label htmlFor="class" className="block text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
             Select Class
           </label>
           <select
             id="class"
             value={selectedClass}
             onChange={(e) => setSelectedClass(e.target.value)}
-            className="w-full p-2 border rounded-md bg-gray-100 dark:bg-[#2C3E50] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#3FA2F6]"
+            className="w-full p-2 border  rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select Class</option>
             {classes.map((classOption, index) => (
@@ -71,22 +71,22 @@ const WeeklySchedule = () => {
 
       {/* Weekly Schedule Table */}
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-gray-100 dark:bg-[#2C3E50] rounded-lg shadow-lg">
-          <thead className="text-black dark:text-[#96C9F4]">
+        <table className="min-w-full bg-white dark:bg-gray-700 rounded-lg shadow-lg border-foreground">
+          <thead className="text-gray-700 dark:text-gray-300 border border-foreground">
             <tr>
-              <th className="px-4 py-2 text-left">Day</th>
+              <th className="px-4 py-2 text-left border border-foreground">Day</th>
               {timeSlots.map((slot, index) => (
-                <th key={index} className="px-4 py-2 text-left">{slot}</th>
+                <th key={index} className="px-4 py-2 text-left text-sm border border-foreground">{slot}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {Object.keys(schedule).map((day) => (
               <tr key={day} className="text-gray-700 dark:text-gray-300">
-                <td className="border px-4 py-2 text-black dark:text-white bg-gray-100 dark:bg-[#34495E]">{day}</td>
-                {schedule[day].map((_, index) => (
-                  <td key={index} className="border px-4 py-2">
-                    <span>empty</span>
+                <td className="border border-foreground px-4 py-2 text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-800">{day}</td>
+                {schedule[day].map((slot, index) => (
+                  <td key={index} className="border border-foreground px-4 py-2">
+                    <span>{slot}</span>
                   </td>
                 ))}
               </tr>

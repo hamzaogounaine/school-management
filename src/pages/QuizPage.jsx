@@ -90,21 +90,21 @@ const QuizPage = () => {
   const currentQuestion = quiz.questions[currentQuestionIndex];
 
   return (
-    <div className="min-h-screen bg-[#34495E] text-white p-6 lg:p-12">
-      <div className="max-w-4xl mx-auto bg-[#2C3E50] p-6 rounded-lg shadow-xl">
+    <div className="min-h-screen dark:bg-[#34495E] dark:text-white p-6 lg:p-12">
+      <div className="max-w-4xl mx-auto bg-background dark:bg-[#2C3E50] p-6 rounded-lg shadow-xl">
         {/* Quiz Header */}
-        <h1 className="text-3xl font-semibold text-[#96C9F4] mb-4">{quiz.title}</h1>
-        <p className="text-lg text-gray-400 mb-6">{quiz.description}</p>
+        <h1 className="text-3xl font-semibold dark:text-[#96C9F4] mb-4">{quiz.title}</h1>
+        <p className="text-lg dark:text-gray-400 mb-6">{quiz.description}</p>
 
         {/* Countdown Timer */}
         {!quizFinished && (
           <div className="flex justify-between items-center mb-8">
-            <div className="text-lg text-gray-300 flex items-center space-x-2">
+            <div className="text-lg text-foreground flex items-center space-x-2">
               <FaClock />
               <span>{formatTime(timeLeft)}</span>
             </div>
             <div>
-              <span className="text-sm text-gray-500">Time Left</span>
+              <span className="text-sm dark:text-gray-500">Time Left</span>
             </div>
           </div>
         )}
@@ -112,7 +112,7 @@ const QuizPage = () => {
         {/* Progress Bar */}
         {!quizFinished && (
           <div className="mb-6">
-            <div className="w-full bg-gray-700 rounded-full h-2.5">
+            <div className="w-full dark:bg-gray-700 bg-gray-300 rounded-full h-2.5">
               <animated.div
                 className="bg-[#3FA2F6] h-2.5 rounded-full"
                 style={progressAnimation}
@@ -126,10 +126,10 @@ const QuizPage = () => {
           <div className="space-y-6">
             <animated.div
               style={questionAnimation}
-              className="bg-[#3FA2F6] p-6 rounded-lg shadow-md"
+              className="dark:bg-[#3FA2F6] p-6 rounded-lg shadow-md border border-foreground"
             >
               <div className="mb-6">
-                <h2 className="text-xl font-semibold text-white">{currentQuestion.question}</h2>
+                <h2 className="text-xl font-semibold text-foreground">{currentQuestion.question}</h2>
               </div>
 
               <div className="space-y-4">

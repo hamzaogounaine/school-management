@@ -10,10 +10,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
+  Book,
+  Clock,
   File,
   GlobeIcon,
   HomeIcon,
   LayoutGridIcon,
+  List,
   MenuIcon,
   Moon,
   MoonIcon,
@@ -44,10 +47,10 @@ export default function Component() {
     <div className={`flex h-screen w-full ${dark ? 'dark' : ''} `}>
       <div className="hidden lg:block lg:w-64 lg:shrink-0 lg:border-r bg-background">
         <div className="flex h-full flex-col justify-between py-6 px-4">
-          <div className="space-y-6">
+          <div className="space-y-2">
             <Link
               href="/"
-              className="flex items-center gap-2 font-bold"
+              className="flex items-center gap-2 font-bold "
               prefetch={false}
             >
               <img
@@ -57,13 +60,14 @@ export default function Component() {
               />
               <span className="text-lg text-foreground">OFPPT</span>
             </Link>
+            <hr />
             <nav className="space-y-3">
               <Link
                 to="/WeeklySchedule"
                 className="bg-secondary text-foreground flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium  border-foreground "
                 prefetch={false}
               >
-                <LayoutGridIcon className="h-5 w-5" />
+                <Clock className="h-5 w-5" />
                 Weekly Schedule
               </Link>
               <Link
@@ -71,7 +75,7 @@ export default function Component() {
                 className="bg-secondary text-foreground flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium  border-foreground "
                 prefetch={false}
               >
-                <LayoutGridIcon className="h-5 w-5" />
+                <List className="h-5 w-5" />
                 Quizzes
               </Link>
               <Link
@@ -79,7 +83,7 @@ export default function Component() {
                 className="bg-secondary text-foreground flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium  border-foreground "
                 prefetch={false}
               >
-                <LayoutGridIcon className="h-5 w-5" />
+                <Book className="h-5 w-5" />
                 Courses
               </Link>
               <Link
@@ -191,7 +195,7 @@ export default function Component() {
             </Sheet>
           </div>
         </header>
-        <main className="p-4 lg:p-8 bg-secondary overflow-y-scroll max-h-screen ">
+        <main className="p-4 lg:p-8 bg-secondary overflow-y-scroll min-h-screen ">
           <Routes>
               <Route path="/WeeklySchedule" element={<WeeklySchedule />} />
               <Route path="/quizzes" element={<QuizPage />} />

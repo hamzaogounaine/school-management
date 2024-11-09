@@ -87,8 +87,8 @@ const DocumentRequest = () => {
       </div>
 
       {/* Request History */}
-      <div className="mt-8">
-        <h3 className="text-2xl font-semibold text-black dark:text-[#96C9F4]">Request History</h3>
+      <div className="mt-8 ">
+        <h3 className="text-2xl font-semibold text-black dark:text-[#96C9F4] ">Request History</h3>
         <div className="space-y-4 mt-4">
           {requestHistory.length > 0 ? (
             requestHistory.map((request) => (
