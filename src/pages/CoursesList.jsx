@@ -20,7 +20,7 @@ const CoursesList = () => {
   );
 
   return (
-    <div className="bg-white dark:bg-[#34495E] p-8 rounded-lg shadow-lg space-y-8">
+    <div className="bg-white dark:bg-[#34495E] p-8 rounded-lg shadow-lg space-y-8 min-h-screen">
       {/* Search Bar with Icon */}
       <div className="flex justify-start mb-6">
         <div className="relative w-full max-w-lg">

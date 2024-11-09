@@ -37,7 +37,7 @@ const DocumentRequest = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-[#34495E] p-6 rounded-lg shadow-lg space-y-6">
+    <div className="bg-white dark:bg-[#34495E] p-6 rounded-lg shadow-lg space-y-6 min-h-screen">
       {/* Title */}
       <h2 className="text-3xl font-semibold text-black dark:text-[#96C9F4] mb-6">Request a Document</h2>
 

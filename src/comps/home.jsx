@@ -12,7 +12,6 @@ import { useGeneral } from "../contexts/generalContext";
 export default function HomePage() {
     const { dark, setDark } = useGeneral();
   return (
-<<<<<<< HEAD
     <div className={`flex flex-col min-h-dvh ${dark ? 'dark' : ''}`}>
       <main className="flex-1">
         <section className="w-full pt-12 md:pt-24 lg:pt-32 border-b">
@@ -242,11 +241,6 @@ export default function HomePage() {
           </div>
         </div>
       </aside>
-=======
-    <div className='bg-secondary'>
-
-    <CourseList />
->>>>>>> bb75778b8b0d37f0e18afca7fcfc54b1e0c845d4
     </div>
   )
 }
