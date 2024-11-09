@@ -3,9 +3,10 @@ import CourseList from './courseList'
 
 const Home = () => {
   return (
-    <>
+    <div className='bg-secondary'>
+
     <CourseList />
-    </>
+    </div>
   )
 }
 
